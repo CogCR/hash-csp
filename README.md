@@ -34,7 +34,7 @@ gulp.src(mainBowerFiles())
       // map to format
       var csp_fragment = hashes.map(h => `'${h}'`).join(" ");
       // make csp node
-      var csp = `script-src 'self' 'unsafe-eval' ${shas}; object-src 'self'`;
+      var csp = `script-src 'self' 'unsafe-eval' ${csp_fragment}; object-src 'self'`;
       gulp.src(manifest)
           .pipe(jeditor({
             content_security_policy: csp
